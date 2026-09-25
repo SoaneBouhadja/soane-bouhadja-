@@ -1,0 +1,622 @@
+html {
+  height: 100%;
+  background: 50% 50% no-repeat
+    url('data:image/svg+xml,<svg viewBox="-20 -5 60 40" width="140" xmlns="http://www.w3.org/2000/svg" opacity="0.2"><path d="M1 8l11-7 11 7v8l-11 7-11-7zm0 0l11 8 11-8m0 8L12 8 1 16M12 1v7m0 8v7" fill="none" stroke="currentColor" stroke-linejoin="round" stroke-width="2"/><text x="-12" y="32" font-size="5" font-family="monospace" fill="currentColor">Built on CodePen</text></svg>');
+}
+:root {
+  --black: #111111;
+  --cream: #f5f1ea;
+  --beige: #ded3c3;
+  --white: #fffdf9;
+  --brown: #8d7961;
+  --border: #d8d0c5;
+}
+
+* {
+  margin: 0;
+  padding: 0;
+  box-sizing: border-box;
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  font-family: Arial, Helvetica, sans-serif;
+  background: var(--cream);
+  color: var(--black);
+  line-height: 1.6;
+}
+
+a {
+  color: inherit;
+  text-decoration: none;
+}
+
+
+/* =========================
+   HEADER
+   ========================= */
+
+.header {
+  height: 90px;
+  padding: 0 7%;
+  display: flex;
+  align-items: center;
+  justify-content: space-between;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.logo {
+  font-family: Georgia, serif;
+  font-size: 38px;
+  letter-spacing: -8px;
+  width: 55px;
+}
+
+nav {
+  display: flex;
+  gap: 45px;
+}
+
+nav a {
+  font-size: 12px;
+  letter-spacing: 3px;
+  text-transform: uppercase;
+  position: relative;
+}
+
+nav a::after {
+  content: "";
+  position: absolute;
+  left: 0;
+  bottom: -8px;
+  width: 0;
+  height: 1px;
+  background: var(--black);
+  transition: width 0.3s ease;
+}
+
+nav a:hover::after {
+  width: 100%;
+}
+
+.header-label {
+  font-size: 10px;
+  letter-spacing: 4px;
+}
+
+
+/* =========================
+   HERO
+   ========================= */
+
+.hero {
+  min-height: calc(100vh - 90px);
+  display: grid;
+  grid-template-columns: 1fr 0.8fr;
+  align-items: center;
+  background: var(--cream);
+}
+
+.hero-text {
+  padding: 8% 12%;
+}
+
+.eyebrow {
+  font-size: 11px;
+  letter-spacing: 4px;
+  margin-bottom: 30px;
+  color: var(--brown);
+}
+
+.eyebrow::before {
+  content: "";
+  display: inline-block;
+  width: 55px;
+  height: 1px;
+  background: var(--brown);
+  vertical-align: middle;
+  margin-right: 20px;
+}
+
+h1 {
+  font-family: Georgia, "Times New Roman", serif;
+  font-size: clamp(55px, 6vw, 90px);
+  font-weight: normal;
+  line-height: 0.95;
+  letter-spacing: -4px;
+  margin-bottom: 35px;
+}
+
+h1 span {
+  display: block;
+  color: var(--brown);
+  font-style: italic;
+}
+
+.intro {
+  max-width: 570px;
+  font-size: 16px;
+  line-height: 1.9;
+  color: #444;
+  margin-bottom: 45px;
+}
+
+
+/* =========================
+   BOUTON
+   ========================= */
+
+.button,
+.contact-button {
+  display: inline-block;
+  padding: 18px 28px;
+  background: var(--black);
+  color: white;
+  font-size: 11px;
+  letter-spacing: 3px;
+  transition: all 0.3s ease;
+}
+
+.button span,
+.contact-button span {
+  margin-left: 25px;
+  font-size: 18px;
+}
+
+.button:hover,
+.contact-button:hover {
+  background: var(--brown);
+  transform: translateY(-3px);
+}
+
+
+/* =========================
+   PHOTO CERCLE
+   ========================= */
+
+.hero-photo {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  min-height: 600px;
+  position: relative;
+}
+
+
+/* cercle extérieur */
+
+.photo-circle {
+  width: 330px;
+  height: 330px;
+  border-radius: 50%;
+  padding: 8px;
+  background: var(--white);
+  border: 1px solid var(--border);
+  box-shadow: 0 20px 60px rgba(0, 0, 0, 0.08);
+  position: relative;
+  z-index: 2;
+}
+
+
+/* photo */
+
+.photo-circle img {
+  width: 100%;
+  height: 100%;
+  border-radius: 50%;
+  object-fit: cover;
+  object-position: center top;
+  display: block;
+}
+
+
+/* petit cercle décoratif */
+
+.hero-photo::before {
+  content: "";
+  position: absolute;
+  width: 390px;
+  height: 390px;
+  border-radius: 50%;
+  border: 1px solid var(--beige);
+}
+
+
+/* petit détail luxe */
+
+.hero-photo::after {
+  content: "";
+  position: absolute;
+  width: 10px;
+  height: 10px;
+  border-radius: 50%;
+  background: var(--brown);
+  top: 24%;
+  right: 18%;
+}
+
+
+/* texte sous photo */
+
+.photo-caption {
+  width: 330px;
+  display: flex;
+  justify-content: space-between;
+  margin-top: 25px;
+  font-size: 9px;
+  letter-spacing: 3px;
+  color: var(--brown);
+}
+
+
+/* =========================
+   COMPÉTENCES
+   ========================= */
+
+.skills {
+  padding: 80px 8%;
+  display: grid;
+  grid-template-columns: repeat(4, 1fr);
+  gap: 45px;
+  background: var(--white);
+  border-bottom: 1px solid var(--border);
+}
+
+.skill {
+  border-left: 1px solid var(--border);
+  padding-left: 25px;
+}
+
+.skill span {
+  font-size: 11px;
+  color: var(--brown);
+  letter-spacing: 2px;
+}
+
+.skill h3 {
+  font-family: Georgia, serif;
+  font-size: 23px;
+  font-weight: normal;
+  margin: 12px 0;
+}
+
+.skill p {
+  font-size: 13px;
+  color: #666;
+  line-height: 1.7;
+}
+
+
+/* =========================
+   SECTIONS
+   ========================= */
+
+.about,
+.projects,
+.contact {
+  padding: 130px 10%;
+}
+
+.section-number {
+  font-size: 10px;
+  letter-spacing: 4px;
+  color: var(--brown);
+  margin-bottom: 60px;
+}
+
+
+/* =========================
+   À PROPOS
+   ========================= */
+
+.about {
+  display: grid;
+  grid-template-columns: 0.4fr 1fr;
+  gap: 80px;
+  background: var(--cream);
+}
+
+.about-content {
+  max-width: 850px;
+}
+
+.about h2,
+.projects h2,
+.contact h2 {
+  font-family: Georgia, serif;
+  font-size: clamp(45px, 5vw, 75px);
+  font-weight: normal;
+  line-height: 1.05;
+  letter-spacing: -3px;
+  margin-bottom: 45px;
+}
+
+.about h2 em,
+.projects h2 em,
+.contact h2 em {
+  color: var(--brown);
+}
+
+.about-content p {
+  max-width: 650px;
+  color: #555;
+  font-size: 16px;
+  line-height: 1.9;
+  margin-bottom: 20px;
+}
+
+
+/* =========================
+   PROJETS
+   ========================= */
+
+.projects {
+  background: var(--white);
+}
+
+.project-grid {
+  display: grid;
+  grid-template-columns: 1fr 1fr;
+  gap: 50px;
+}
+
+.project {
+  border-top: 1px solid var(--border);
+}
+
+.project-image {
+  height: 300px;
+  background: linear-gradient(
+    135deg,
+    #cfc1ad,
+    #eee8df
+  );
+  position: relative;
+  display: flex;
+  align-items: flex-end;
+  padding: 25px;
+}
+
+.project-image-two {
+  background: linear-gradient(
+    135deg,
+    #222,
+    #9c8a72
+  );
+}
+
+.project-image span {
+  font-family: Georgia, serif;
+  font-size: 45px;
+  color: rgba(255,255,255,0.8);
+}
+
+.project-info {
+  padding: 30px 0;
+}
+
+.project-info > p:first-child {
+  font-size: 10px;
+  letter-spacing: 3px;
+  color: var(--brown);
+  margin-bottom: 10px;
+}
+
+.project-info h3 {
+  font-family: Georgia, serif;
+  font-size: 28px;
+  font-weight: normal;
+  margin-bottom: 15px;
+}
+
+.project-info p {
+  max-width: 500px;
+  font-size: 14px;
+  color: #666;
+}
+
+.project-info a {
+  display: inline-block;
+  margin-top: 20px;
+  font-size: 11px;
+  letter-spacing: 2px;
+  border-bottom: 1px solid var(--black);
+  padding-bottom: 5px;
+}
+
+
+/* =========================
+   CONTACT
+   ========================= */
+
+.contact {
+  text-align: center;
+  background: var(--cream);
+}
+
+.contact .section-number {
+  margin-bottom: 40px;
+}
+
+.contact h2 {
+  max-width: 850px;
+  margin: 0 auto 30px;
+}
+
+.contact > p {
+  max-width: 550px;
+  margin: 0 auto 40px;
+  color: #666;
+}
+
+.socials {
+  margin-top: 80px;
+  display: flex;
+  justify-content: center;
+  gap: 40px;
+}
+
+.socials a {
+  font-size: 11px;
+  letter-spacing: 2px;
+  text-transform: uppercase;
+}
+
+.socials a:hover {
+  color: var(--brown);
+}
+
+
+/* =========================
+   FOOTER
+   ========================= */
+
+footer {
+  padding: 30px 8%;
+  display: flex;
+  justify-content: space-between;
+  background: var(--black);
+  color: white;
+  font-size: 10px;
+  letter-spacing: 2px;
+}
+
+
+/* =========================
+   ANIMATION
+   ========================= */
+
+.skill,
+.project,
+.about-content {
+  opacity: 0;
+  transform: translateY(25px);
+  transition:
+    opacity 0.7s ease,
+    transform 0.7s ease;
+}
+
+.skill.visible,
+.project.visible,
+.about-content.visible {
+  opacity: 1;
+  transform: translateY(0);
+}
+
+
+/* =========================
+   TABLETTE
+   ========================= */
+
+@media (max-width: 900px) {
+
+  .header {
+    padding: 0 5%;
+  }
+
+  nav {
+    gap: 15px;
+  }
+
+  .header-label {
+    display: none;
+  }
+
+  .hero {
+    grid-template-columns: 1fr;
+    padding-bottom: 70px;
+  }
+
+  .hero-text {
+    padding: 80px 8% 40px;
+  }
+
+  .hero-photo {
+    min-height: 450px;
+  }
+
+  .skills {
+    grid-template-columns: 1fr 1fr;
+  }
+
+  .about {
+    grid-template-columns: 1fr;
+    gap: 20px;
+  }
+
+  .project-grid {
+    grid-template-columns: 1fr;
+  }
+
+}
+
+
+/* =========================
+   MOBILE
+   ========================= */
+
+@media (max-width: 600px) {
+
+  .header {
+    height: auto;
+    padding: 25px;
+    flex-wrap: wrap;
+    gap: 20px;
+  }
+
+  nav {
+    width: 100%;
+    justify-content: space-between;
+  }
+
+  nav a {
+    font-size: 9px;
+    letter-spacing: 1px;
+  }
+
+  h1 {
+    font-size: 55px;
+  }
+
+  .photo-circle {
+    width: 250px;
+    height: 250px;
+  }
+
+  .hero-photo::before {
+    width: 295px;
+    height: 295px;
+  }
+
+  .photo-caption {
+    width: 250px;
+  }
+
+  .skills {
+    grid-template-columns: 1fr;
+    padding: 60px 8%;
+  }
+
+  .about,
+  .projects,
+  .contact {
+    padding: 90px 8%;
+  }
+
+  .about h2,
+  .projects h2,
+  .contact h2 {
+    font-size: 48px;
+  }
+
+  footer {
+    flex-direction: column;
+    gap: 10px;
+  }
+
+}
